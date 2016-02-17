@@ -1,0 +1,5 @@
+<h2><%= employee.full_name %></h2>
+<h3><%= employee.email %></h3>
+<h3><%= employee.birthday %></h3>
+
+<%= link_to "Delete", "/employees/#{employee.id}", method: :delete %>

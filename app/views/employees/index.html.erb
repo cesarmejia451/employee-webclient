@@ -1,0 +1,7 @@
+<h1>Employees Index</h1>
+<% @employees.each do |employee| %>
+  <h2><%= link_to employee.full_name, "employees/#{employee.id}" %></h2>
+  <h3><%= employee.email %></h3>
+  <h3><%= employee.pretty_birthday %></h3>
+  <hr>
+<% end %> 

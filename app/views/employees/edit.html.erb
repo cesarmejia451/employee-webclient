@@ -1,0 +1,16 @@
+<h1>Update an Employee</h1>
+<%= form_tag '/employees', method: :patch do %>
+  <div>
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name %>
+  </div>
+  <div>
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name %>
+  </div>
+  <div>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  <%= submit_tag "Submit" %>
+<% end %>
