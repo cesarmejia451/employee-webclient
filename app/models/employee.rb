@@ -20,7 +20,7 @@ class Employee
   end
 
   def self.find(id)
-    Employee.new(Unirest.get("#{ENV['API_BASE_URL']}/employees/#{id}.json").body)
+    Employee.new(Unirest.get("#{ENV['API_BASE_URL']}/employees/#{id}.json", headers:{ "Accept" => "application/json", "X-User-Email" => "#{ENV['API_EMAIL']}", "Authorization" => "Token token=#{ENV['API_KEY']}" }).body)
   end
 
   def self.all
