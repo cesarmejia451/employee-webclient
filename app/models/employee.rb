@@ -20,18 +20,18 @@ class Employee
   end
 
   def self.find(id)
-    Employee.new(Unirest.get("http://localhost:3000/employees/#{id}.json").body)
+    Employee.new(Unirest.get("#{ENV['API_BASE_URL']}/employees/#{id}.json").body)
   end
 
   def self.all
-    api_employees_array = Unirest.get("http://localhost:3000/employees.json").body
+    api_employees_array = Unirest.get("#{ENV['API_BASE_URL']}/employees.json").body
     employees = []
     api_employees_array.each { |api_employee| employees << self.new(api_employee) }
     employees
   end
 
   def destroy
-    Unirest.delete("http://localhost:3000/employees/#{id}.json", headers:{ "Accept" => "application/json" }).body
+    Unirest.delete("#{ENV['API_BASE_URL']}/employees/#{id}.json", headers:{ "Accept" => "application/json" }).body
   end
 
 end
